@@ -86,6 +86,22 @@ const courseInfo = {
       return;
     }
   }
+  //I thought that I did something wrong when I didn't get any at all message in the console 😂🤦🏾‍♀️
+  const results = [];
+
+  learnerSubmissions.forEach(submission => {
+    const learnerData = { id: submission.learner_id }; 
+    let totalScore = 0;
+    let totalPoints = 0;
+
   
-  
-  
+  const assignment = assignmentGroup.assignments.find(
+    assign => assign.id === submission.assignment_id
+);
+
+if (!assignment || assignment.points_possible === 0) {
+    return; 
+}
+
+
+
