@@ -133,3 +133,19 @@ function getLearnerData(courseInfo, assignmentGroup, learnerSubmissions) {
 }
 const learnerDataResults = getLearnerData(courseInfo, assignmentGroup, learnerSubmissions);
 console.log(learnerDataResults);
+
+try {
+  const learnerDataResults = getLearnerData(courseInfo, assignmentGroup, learnerSubmissions);
+  console.log(learnerDataResults);
+} catch (error) {
+  console.error("Error processing learner data:", error.message);
+}
+function displayResults(results) {
+  results.forEach(result => {
+    console.log(`Learner ID: ${result.id}, Average Score: ${result.avg.toFixed(2)}`);
+    console.log('Scores:', result.scores);
+  });
+}
+
+// Call the display function
+displayResults(learnerDataResults);
